@@ -1,0 +1,8 @@
+<app-descripcion-convencion [clase]=clase [titulo]=titulo [subtitulo]=subtitulo [imagenUrl]=imagenUrl
+    [imagenAlt]=imagenAlt [descripcion]=descripcion>
+</app-descripcion-convencion>
+<div *ngFor="let seccion of secciones">
+    <app-mostrar-materiales [titulo]=seccion.titulo [tipo]=seccion.tipo [color]=seccion.color
+        [noElementos]=seccion.noElementos [boton]=seccion.boton [convencion]=convencion [detalle]=seccion.detalle>
+    </app-mostrar-materiales>
+</div>

@@ -1,0 +1,21 @@
+<div [ngClass]="getClassOf()">
+    <h2 class="subtitle">{{titulo}}</h2>
+    <div class="block-covers">
+        <div *ngFor="let entrada of entradas | slice:0:noElementos" class="cover">
+            <div class="image-cover">
+                <a href=""><img [src]=entrada.thumbnail></a>
+            </div>
+            <div class="info-cover">
+                <h2><a href="">{{entrada.titulo}}</a></h2>
+                <h3 *ngIf="detalle">Convención: <a href="cedaw.html">{{entrada.convencion}}</a></h3>
+                <div class="links">
+                    <ul>
+                        <li><a href=""><img [src]=descargarSrc></a></li>
+                        <li><a href=""><img [src]=compartirSrc></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a class="ver-mas" *ngIf="boton">Ver más</a>
+    </div>
+</div>
