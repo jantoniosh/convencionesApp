@@ -361,13 +361,13 @@ header#header {
 
 .block-top-content.home {
     background-color: #f57b39;
-    background-image: url(assets/images/imagetop.png), url(assets/images/backtop.png);
-    background-position: right bottom, center;
-    background-repeat: no-repeat, no-repeat;
-    -webkit-background-size: 25%, cover;
-    -moz-background-size: 25%, cover;
-    -o-background-size: 25%, cover;
-    background-size: 25%, cover;
+    background-image: url(assets/images/disponibilidad.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .block-top-content.convencion .content-convencion {
@@ -386,10 +386,24 @@ header#header {
 
 .block-top-content.belem {
     background-color: #ff5e36;
+    background-image: url(assets/images/aceptabilidad.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .block-top-content.cedaw {
     background-color: #87bfc4;
+    background-image: url(assets/images/calidad.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .text-content-top,
@@ -462,6 +476,11 @@ header#header {
 
 .links ul li a {
     margin: 0 10px;
+    opacity: 0.5;
+}
+
+.links ul li a:hover {
+    opacity: 1;
 }
 
 .block-info-page {
@@ -485,7 +504,7 @@ header#header {
 
 .block-content.multiple {
     background-color: #00711a;
-    background-image: url(assets/images/imageblockdos.png);
+    background-image: url(assets/images/accesibilidad.gif);
     background-position: left bottom;
     background-repeat: no-repeat;
     -webkit-background-size: 25%;
@@ -529,12 +548,16 @@ header#header {
 
 .info-cover h3 {
     font-size: 1em;
-    margin: 0 0 16px;
+    margin: 0 0 4px;
     text-align: center;
 }
 
 .info-cover h3 a {
     color: #fff;
+}
+
+.links {
+    margin-top: 20px;
 }
 
 footer#footer {
@@ -558,21 +581,29 @@ footer#footer {
 }
 
 .column-footer h2 {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 600;
     margin-bottom: 14px;
 }
 
 .column-footer ul li a {
-    font-size: 1em;
     color: #fff;
+    display: block;
 }
 
-.block-content.multiple.materiales.info {
+.column-footer ul li {
+    font-size: 0.8em;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: block;
+}
+
+.block-content.materiales.info {
     background-color: #182e3d;
 }
 
-.block-content.multiple.materiales.podcast {
+.block-content.materiales.podcast {
     background-color: #8175ba;
 }
 

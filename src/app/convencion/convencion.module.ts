@@ -8,6 +8,10 @@ import { BelemComponent } from './pages/belem/belem.component';
 import { CedawComponent } from './pages/cedaw/cedaw.component';
 import { DescripcionConvencionComponent } from './components/descripcion-convencion/descripcion-convencion.component';
 import { MostrarMaterialesComponent } from './components/mostrar-materiales/mostrar-materiales.component';
+import { PodcastComponent } from './pages/podcast/podcast.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { FichaComponent } from './pages/ficha/ficha.component';
+import { InfografiaComponent } from './pages/infografia/infografia.component';
 
 
 
@@ -19,7 +23,11 @@ import { MostrarMaterialesComponent } from './components/mostrar-materiales/most
     BelemComponent,
     CedawComponent,
     DescripcionConvencionComponent,
-    MostrarMaterialesComponent
+    MostrarMaterialesComponent,
+    PodcastComponent,
+    ErrorComponent,
+    FichaComponent,
+    InfografiaComponent
   ],
   imports: [
     CommonModule,

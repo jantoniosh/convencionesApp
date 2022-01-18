@@ -31,10 +31,13 @@ export class MostrarMaterialesComponent implements OnInit {
 
   @Input('convencion') convencion: string = "";
 
+  @Input('liga') liga: string = "";
+
   constructor(private entradaService: EntradaService) {
   }
 
   ngOnInit(): void {
+
     this.hayError = false;
     console.log(this.convencion);
 
@@ -65,20 +68,29 @@ export class MostrarMaterialesComponent implements OnInit {
       else if (this.tipo === "Infografías") {
         this.entradaService.buscarInfografias(this.convencion)
           .subscribe(observerEntrada);
-
       }
     }
   }
 
   getClassOf() {
     if (this.color === "Verde") {
-      return "block-content multiple materiales";
+      return "block-content multiple materiales home";
     }
     else if (this.color === "Morado") {
-      return "block-content multiple materiales podcast";
+      return "block-content materiales podcast home";
     }
     else if (this.color === "Azul") {
-      return "block-content multiple materiales info";
+      return "block-content materiales info home";
+    }
+    return "";
+  }
+
+  getRuta(convencion: string) {
+    if (convencion == "Belém do Pará") {
+      return "belem";
+    }
+    else if (convencion == "CEDAW") {
+      return "cedaw";
     }
     return "";
   }

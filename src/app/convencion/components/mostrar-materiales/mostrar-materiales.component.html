@@ -3,11 +3,12 @@
     <div class="block-covers">
         <div *ngFor="let entrada of entradas | slice:0:noElementos" class="cover">
             <div class="image-cover">
-                <a href=""><img [src]=entrada.thumbnail></a>
+                <a routerLink="belem" routerLinkActive="active"><img [src]=entrada.thumbnail></a>
             </div>
             <div class="info-cover">
                 <h2><a href="">{{entrada.titulo}}</a></h2>
-                <h3 *ngIf="detalle">Convención: <a href="cedaw.html">{{entrada.convencion}}</a></h3>
+                <h3 *ngIf="detalle">Convención: <a [routerLink]="getRuta(entrada.convencion)" routerLinkActive="active">{{entrada.convencion}}</a></h3>
+                <h3 *ngIf="detalle">Tipo: <a href="cedaw.html">{{entrada.categoria}}</a></h3>
                 <div class="links">
                     <ul>
                         <li><a href=""><img [src]=descargarSrc></a></li>
