@@ -34,4 +34,14 @@ export class EntradaService {
     const url = `${this.apiUrl}/getfichas?convencion=${convencion}`;
     return this.http.get<Entrada[]>(url);
   }
+
+  buscarEntrada(ruta: string): Observable<Entrada> {
+    const url = `${this.apiUrl}/getentrada?ruta=${ruta}`;
+    return this.http.get<Entrada>(url);
+  }
+
+  buscarTitulo(titulo: string): Observable<Entrada[]> {
+    const url = `${this.apiUrl}/gettitulo?titulo=${titulo}`;
+    return this.http.get<Entrada[]>(url);
+  }
 }

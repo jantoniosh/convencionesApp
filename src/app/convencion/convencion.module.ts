@@ -8,10 +8,11 @@ import { BelemComponent } from './pages/belem/belem.component';
 import { CedawComponent } from './pages/cedaw/cedaw.component';
 import { DescripcionConvencionComponent } from './components/descripcion-convencion/descripcion-convencion.component';
 import { MostrarMaterialesComponent } from './components/mostrar-materiales/mostrar-materiales.component';
-import { PodcastComponent } from './pages/podcast/podcast.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { FichaComponent } from './pages/ficha/ficha.component';
-import { InfografiaComponent } from './pages/infografia/infografia.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
+import { HomeComponent } from './components/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EntradaComponent } from './pages/entrada/entrada.component';
 
 
 
@@ -24,18 +25,18 @@ import { InfografiaComponent } from './pages/infografia/infografia.component';
     CedawComponent,
     DescripcionConvencionComponent,
     MostrarMaterialesComponent,
-    PodcastComponent,
     ErrorComponent,
-    FichaComponent,
-    InfografiaComponent
+    BusquedaComponent,
+    HomeComponent,
+    EntradaComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
-    HeaderComponent,
-    FooterComponent
+    HomeComponent
   ]
 })
 export class ConvencionModule { }

@@ -7,4 +7,5 @@ export interface Entrada {
     etiquetas: string;
     thumbnail: string;
     urlEntrada: string;
+    urlContenido: string;
 }

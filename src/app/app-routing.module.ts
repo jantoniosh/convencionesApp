@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BelemComponent } from './convencion/pages/belem/belem.component';
+import { BusquedaComponent } from './convencion/pages/busqueda/busqueda.component';
 import { CedawComponent } from './convencion/pages/cedaw/cedaw.component';
+import { EntradaComponent } from './convencion/pages/entrada/entrada.component';
 import { MainComponent } from './convencion/pages/main/main.component';
-import { PodcastComponent } from './convencion/pages/podcast/podcast.component';
 
 const routes: Routes = [
     {
@@ -21,15 +22,19 @@ const routes: Routes = [
     },
     {
         path: 'podcast/:slug',
-        component: PodcastComponent
+        component: EntradaComponent
     },
     {
         path: 'ficha/:slug',
-        component: PodcastComponent
+        component: EntradaComponent
     },
     {
         path: 'infografia/:slug',
-        component: PodcastComponent
+        component: EntradaComponent
+    },
+    {
+        path: 'busqueda',
+        component: BusquedaComponent
     }
 ];
 

@@ -1,0 +1,11 @@
+<div>
+    <label for="name">Titulo: </label>
+    <input id="name" type="text" [formControl]=titulo (keydown)="reset()">
+    <button (click)="buscar()">Buscar</button>
+</div>
+<div *ngIf="seccion.entradas.length > 0">
+    <app-mostrar-materiales [seccion]=seccion></app-mostrar-materiales>
+</div>
+<div *ngIf="seccion.entradas.length === 0 && busqueda === true">
+    <h2>Sin Elementos</h2>
+</div>

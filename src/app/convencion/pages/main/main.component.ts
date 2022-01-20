@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Entrada } from '../../interfaces/entrada.interface';
 import { Seccion } from '../../interfaces/seccion.interface';
+import { EntradaService } from '../../services/convencion.service';
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html'
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
 
     portadaBelemSrc: string = "assets/images/portadauno.png";
     portadaBelemAlt: string = "portada uno";
@@ -19,23 +21,51 @@ export class MainComponent {
 
     secciones: Seccion[] = [
         {
-          titulo: 'Sugerencias semanales',
-          tipo: '*',
-          detalle: true,
-          color: 'Azul',
-          noElementos: 4,
-          boton: false
+            titulo: 'Sugerencias semanales',
+            detalle: true,
+            color: 'Azul',
+            noElementos: 4,
+            boton: false,
+            entradas: []
         },
         {
-          titulo: 'Selección de materiales',
-          tipo: '*',
-          detalle: true,
-          color: 'Verde',
-          noElementos: 12,
-          boton: false
+            titulo: 'Selección de materiales',
+            detalle: true,
+            color: 'Verde',
+            noElementos: 12,
+            boton: false,
+            entradas: []
         }
     ];
 
-    constructor() { }
+    constructor(private entradaService: EntradaService) { }
+
+    ngOnInit(): void {
+        const observerEntrada0 = {
+            next: (entradas: Entrada[]) => {
+                console.log(entradas);
+                this.secciones[0].entradas = entradas;
+            },
+            error: (err: Error) => {
+                this.secciones[0].entradas = [];
+            }
+        }
+        this.entradaService
+            .buscarEntradas()
+            .subscribe(observerEntrada0);
+
+        const observerEntrada1 = {
+            next: (entradas: Entrada[]) => {
+                console.log(entradas);
+                this.secciones[1].entradas = entradas;
+            },
+            error: (err: Error) => {
+                this.secciones[1].entradas = [];
+            }
+        }
+        this.entradaService
+            .buscarEntradas()
+            .subscribe(observerEntrada1);
+    }
 
 }

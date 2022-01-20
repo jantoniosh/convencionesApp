@@ -40,7 +40,5 @@
         naciones, México entre estas, para luchar por la igualdad en materia de derechos humanos. </p>
 </div>
 <div *ngFor="let seccion of secciones">
-    <app-mostrar-materiales [titulo]=seccion.titulo [tipo]=seccion.tipo [color]=seccion.color
-        [noElementos]=seccion.noElementos [boton]=seccion.boton [convencion]=convencion [detalle]=seccion.detalle>
-    </app-mostrar-materiales>
+    <app-mostrar-materiales [seccion]=seccion></app-mostrar-materiales>
 </div>

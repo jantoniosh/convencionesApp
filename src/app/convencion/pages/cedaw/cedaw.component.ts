@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Entrada } from '../../interfaces/entrada.interface';
 import { Seccion } from '../../interfaces/seccion.interface';
+import { EntradaService } from '../../services/convencion.service';
 
 @Component({
   selector: 'app-cedaw',
@@ -20,29 +22,64 @@ export class CedawComponent {
   secciones: Seccion[] = [
     {
       titulo: 'Fichas',
-      tipo: 'Fichas',
       detalle: false,
       color: 'Verde',
       noElementos: 4,
-      boton: true
+      boton: true,
+      entradas: []
     },
     {
       titulo: 'Podcasts',
-      tipo: 'Podcasts',
       color: 'Morado',
       detalle: false,
       noElementos: 4,
-      boton: true
+      boton: true,
+      entradas: []
     },
     {
       titulo: 'Infografías',
-      tipo: 'Infografías',
       detalle: false,
       color: 'Azul',
       noElementos: 4,
-      boton: true
+      boton: true,
+      entradas: []
     }
   ];
 
-  constructor() { }
+  constructor(private entradaService: EntradaService) { }
+
+  ngOnInit(): void {
+    const observerEntrada0 = {
+      next: (entradas: Entrada[]) => {
+        this.secciones[0].entradas = entradas;
+      },
+      error: (err: Error) => {
+        this.secciones[0].entradas = [];
+      }
+    }
+    this.entradaService.buscarFichas(this.convencion)
+      .subscribe(observerEntrada0);
+
+    const observerEntrada1 = {
+      next: (entradas: Entrada[]) => {
+        this.secciones[1].entradas = entradas;
+      },
+      error: (err: Error) => {
+        this.secciones[1].entradas = [];
+      }
+    }
+    this.entradaService.buscarPodcasts(this.convencion)
+      .subscribe(observerEntrada1);
+
+    const observerEntrada2 = {
+      next: (entradas: Entrada[]) => {
+        this.secciones[2].entradas = entradas;
+      },
+      error: (err: Error) => {
+        this.secciones[2].entradas = [];
+      }
+    }
+    this.entradaService.buscarInfografias(this.convencion)
+      .subscribe(observerEntrada2);
+  }
 }

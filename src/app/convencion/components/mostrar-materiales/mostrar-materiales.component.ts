@@ -1,97 +1,68 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Entrada } from '../../interfaces/entrada.interface';
 import { EntradaService } from '../../services/convencion.service';
+import { Seccion } from '../../interfaces/seccion.interface';
 
 @Component({
-  selector: 'app-mostrar-materiales',
-  templateUrl: './mostrar-materiales.component.html'
+    selector: 'app-mostrar-materiales',
+    templateUrl: './mostrar-materiales.component.html'
 })
 export class MostrarMaterialesComponent implements OnInit {
 
-  coverImg: string = "assets/images/materialuno.jpg";
-  descargarSrc: string = "assets/images/descargar.png";
-  descargarAlt: string = "descargar";
-  compartirSrc: string = "assets/images/compartir.png";
-  compartirAlt: string = "compartir";
-  hayError: boolean = false;
-  entradas: Entrada[] = [];
-  termino: string = "";
+    coverImg: string = "assets/images/materialuno.jpg";
+    descargarSrc: string = "assets/images/descargar.png";
+    descargarAlt: string = "descargar";
+    compartirSrc: string = "assets/images/compartir.png";
+    compartirAlt: string = "compartir";
+    hayError: boolean = false;
+    termino: string = "";
 
-  @Input('tipo') tipo: string = "";
+    // @Input('titulo') titulo: string = "";
 
-  @Input('titulo') titulo: string = "";
+    // @Input('color') color: string = "";
 
-  @Input('color') color: string = "";
+    // @Input('noElementos') noElementos: number = 0;
 
-  @Input('noElementos') noElementos: number = 0;
+    // @Input('boton') boton: boolean = true;
 
-  @Input('boton') boton: boolean = true;
+    // @Input('detalle') detalle: boolean = true;
 
-  @Input('detalle') detalle: boolean = true;
+    // @Input('entradas') entradas: Entrada[] = [];
 
-  @Input('convencion') convencion: string = "";
-
-  @Input('liga') liga: string = "";
-
-  constructor(private entradaService: EntradaService) {
-  }
-
-  ngOnInit(): void {
-
-    this.hayError = false;
-    console.log(this.convencion);
-
-    const observerEntrada = {
-      next: (entradas: Entrada[]) => {
-        console.log(entradas);
-        this.entradas = entradas;
-      },
-      error: (err: Error) => {
-        this.hayError = true;
-        this.entradas = [];
-      }
+    @Input('seccion') seccion: Seccion = {
+        titulo: '',
+        detalle: false,
+        color: '',
+        noElementos: 0,
+        boton: false,
+        entradas: []
     }
 
-    if (this.tipo === "*") {
-      this.entradaService.buscarEntradas()
-        .subscribe(observerEntrada);
-    }
-    else {
-      if (this.tipo === "Fichas") {
-        this.entradaService.buscarFichas(this.convencion)
-          .subscribe(observerEntrada);
-      }
-      else if (this.tipo === "Podcasts") {
-        this.entradaService.buscarPodcasts(this.convencion)
-          .subscribe(observerEntrada);
-      }
-      else if (this.tipo === "Infografías") {
-        this.entradaService.buscarInfografias(this.convencion)
-          .subscribe(observerEntrada);
-      }
-    }
-  }
+    constructor(private entradaService: EntradaService) { }
 
-  getClassOf() {
-    if (this.color === "Verde") {
-      return "block-content multiple materiales home";
+    ngOnInit(): void {
     }
-    else if (this.color === "Morado") {
-      return "block-content materiales podcast home";
-    }
-    else if (this.color === "Azul") {
-      return "block-content materiales info home";
-    }
-    return "";
-  }
 
-  getRuta(convencion: string) {
-    if (convencion == "Belém do Pará") {
-      return "belem";
+    getClassOf() {
+        if (this.seccion.color === "Verde") {
+            return "block-content multiple materiales home";
+        }
+        else if (this.seccion.color === "Morado") {
+            return "block-content materiales podcast home";
+        }
+        else if (this.seccion.color === "Azul") {
+            return "block-content materiales info home";
+        }
+        return "";
     }
-    else if (convencion == "CEDAW") {
-      return "cedaw";
+
+    getRuta(convencion: string) {
+        if (convencion == "Belém do Pará") {
+            return "belem";
+        }
+        else if (convencion == "CEDAW") {
+            return "cedaw";
+        }
+        return "";
     }
-    return "";
-  }
 }

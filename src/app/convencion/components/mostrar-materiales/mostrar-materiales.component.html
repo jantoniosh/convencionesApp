@@ -1,14 +1,16 @@
 <div [ngClass]="getClassOf()">
-    <h2 class="subtitle">{{titulo}}</h2>
+    <h2 class="subtitle">{{seccion.titulo}}</h2>
     <div class="block-covers">
-        <div *ngFor="let entrada of entradas | slice:0:noElementos" class="cover">
+        <div *ngFor="let entrada of seccion.entradas | slice:0:seccion.noElementos" data-aos="fade-up"
+            data-aos-duration="1000" class="cover">
             <div class="image-cover">
-                <a routerLink="belem" routerLinkActive="active"><img [src]=entrada.thumbnail></a>
+                <a [routerLink]=entrada.urlEntrada routerLinkActive="active"><img [src]=entrada.thumbnail></a>
             </div>
             <div class="info-cover">
                 <h2><a href="">{{entrada.titulo}}</a></h2>
-                <h3 *ngIf="detalle">Convención: <a [routerLink]="getRuta(entrada.convencion)" routerLinkActive="active">{{entrada.convencion}}</a></h3>
-                <h3 *ngIf="detalle">Tipo: <a href="cedaw.html">{{entrada.categoria}}</a></h3>
+                <h3 *ngIf="seccion.detalle">Convención: <a [routerLink]="getRuta(entrada.convencion)"
+                        routerLinkActive="active">{{entrada.convencion}}</a></h3>
+                <h3 *ngIf="seccion.detalle">Tipo: {{entrada.categoria}}</h3>
                 <div class="links">
                     <ul>
                         <li><a href=""><img [src]=descargarSrc></a></li>
@@ -17,6 +19,6 @@
                 </div>
             </div>
         </div>
-        <a class="ver-mas" *ngIf="boton">Ver más</a>
+        <a class="ver-mas" *ngIf="seccion.boton">Ver más</a>
     </div>
 </div>

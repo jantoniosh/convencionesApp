@@ -1,8 +1,10 @@
+import { Entrada } from "./entrada.interface";
+
 export interface Seccion {
     titulo: string;
-    tipo: string;
     detalle: boolean;
     color: string;
     noElementos: number;
     boton: boolean;
+    entradas: Entrada[];
 }
