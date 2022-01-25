@@ -13,4 +13,8 @@ export class HomeComponent implements OnInit {
     Aos.init();
   }
 
+  onActivate() {
+    window.scroll(0, 0);
+  }
+
 }

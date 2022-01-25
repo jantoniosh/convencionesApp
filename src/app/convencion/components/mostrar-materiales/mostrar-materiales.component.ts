@@ -17,18 +17,6 @@ export class MostrarMaterialesComponent implements OnInit {
     hayError: boolean = false;
     termino: string = "";
 
-    // @Input('titulo') titulo: string = "";
-
-    // @Input('color') color: string = "";
-
-    // @Input('noElementos') noElementos: number = 0;
-
-    // @Input('boton') boton: boolean = true;
-
-    // @Input('detalle') detalle: boolean = true;
-
-    // @Input('entradas') entradas: Entrada[] = [];
-
     @Input('seccion') seccion: Seccion = {
         titulo: '',
         detalle: false,
@@ -56,12 +44,25 @@ export class MostrarMaterialesComponent implements OnInit {
         return "";
     }
 
-    getRuta(convencion: string) {
+    getRutaConvencion(convencion: string) {
         if (convencion == "Belém do Pará") {
-            return "belem";
+            return "/belem-do-para";
         }
         else if (convencion == "CEDAW") {
-            return "cedaw";
+            return "/cedaw";
+        }
+        return "";
+    }
+
+    getRutaCategoria(categoria: string) {
+        if (categoria == "Podcast") {
+            return "/categoria/podcast";
+        }
+        else if (categoria == "Ficha") {
+            return "/categoria/ficha";
+        }
+        else if (categoria == "Infografía") {
+            return "/categoria/infografia";
         }
         return "";
     }

@@ -13,6 +13,8 @@ import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntradaComponent } from './pages/entrada/entrada.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
 
 
 
@@ -28,7 +30,9 @@ import { EntradaComponent } from './pages/entrada/entrada.component';
     ErrorComponent,
     BusquedaComponent,
     HomeComponent,
-    EntradaComponent
+    EntradaComponent,
+    BuscarComponent,
+    CategoriaComponent
   ],
   imports: [
     CommonModule,

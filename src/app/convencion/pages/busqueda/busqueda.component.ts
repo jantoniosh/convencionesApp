@@ -1,50 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Entrada } from '../../interfaces/entrada.interface';
 import { Seccion } from '../../interfaces/seccion.interface';
 import { EntradaService } from '../../services/convencion.service';
 
 @Component({
-  selector: 'app-busqueda',
-  templateUrl: './busqueda.component.html'
+    selector: 'app-busqueda',
+    templateUrl: './busqueda.component.html'
 })
 export class BusquedaComponent implements OnInit {
 
-  titulo = new FormControl('');
-  busqueda: boolean = false;
+    titulo: string = "";
+    busqueda: boolean = false;
 
-  seccion: Seccion = {
-    titulo: 'Resultados',
-    detalle: true,
-    color: 'Verde',
-    noElementos: 12,
-    boton: true,
-    entradas: []
-  };
+    seccion: Seccion = {
+        titulo: 'Resultados',
+        detalle: true,
+        color: 'Verde',
+        noElementos: 12,
+        boton: true,
+        entradas: []
+    };
 
-  constructor(private entradaService: EntradaService) { }
+    constructor(private Activatedroute: ActivatedRoute, private entradaService: EntradaService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.Activatedroute.queryParams
+            .subscribe(params => {
+                console.log(params["contenido"]);
+                this.titulo = params["contenido"];
+                const observerEntrada = {
+                    next: (entradas: Entrada[]) => {
+                        this.seccion = {
+                            titulo: `Resultados: ${this.titulo}`,
+                            detalle: true,
+                            color: 'Verde',
+                            noElementos: 12,
+                            boton: true,
+                            entradas: entradas
+                        };
 
-  buscar() {
-    const observerEntrada = {
-      next: (entradas: Entrada[]) => {
-        console.log(entradas);
-        this.seccion.entradas = entradas;
-      },
-      error: (err: Error) => {
-        this.seccion.entradas = [];
-      }
+                    },
+                    error: (err: Error) => {
+                        this.seccion = {
+                            titulo: 'Sin Resultados',
+                            detalle: false,
+                            color: 'Verde',
+                            noElementos: 0,
+                            boton: false,
+                            entradas: []
+                        };
+                    }
+                }
+                this.entradaService
+                    .buscarTitulo(this.titulo)
+                    .subscribe(observerEntrada);
+            }
+            );
+
     }
-    this.entradaService
-      .buscarTitulo(this.titulo.value)
-      .subscribe(observerEntrada);
-    this.busqueda = true;
-  }
-
-  reset() {
-    console.log(this.titulo.value);
-    this.busqueda = false;
-  }
 }

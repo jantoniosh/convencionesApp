@@ -7,13 +7,14 @@
                 <a [routerLink]=entrada.urlEntrada routerLinkActive="active"><img [src]=entrada.thumbnail></a>
             </div>
             <div class="info-cover">
-                <h2><a href="">{{entrada.titulo}}</a></h2>
-                <h3 *ngIf="seccion.detalle">Convención: <a [routerLink]="getRuta(entrada.convencion)"
+                <h2><a [routerLink]=entrada.urlEntrada routerLinkActive="active">{{entrada.titulo}}</a></h2>
+                <h3 *ngIf="seccion.detalle">Convención: <a [routerLink]="getRutaConvencion(entrada.convencion)"
                         routerLinkActive="active">{{entrada.convencion}}</a></h3>
-                <h3 *ngIf="seccion.detalle">Tipo: {{entrada.categoria}}</h3>
+                <h3 *ngIf="seccion.detalle">Tipo: <a [routerLink]="getRutaCategoria(entrada.categoria)"
+                        routerLinkActive="active">{{entrada.categoria}}</a></h3>
                 <div class="links">
                     <ul>
-                        <li><a href=""><img [src]=descargarSrc></a></li>
+                        <li><a href="assets/files/general.pdf" target="_blank"><img [src]=descargarSrc></a></li>
                         <li><a href=""><img [src]=compartirSrc></a></li>
                     </ul>
                 </div>
