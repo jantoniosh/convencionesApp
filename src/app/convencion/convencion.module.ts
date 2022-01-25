@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EntradaComponent } from './pages/entrada/entrada.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { EtiquetasComponent } from './components/etiquetas/etiquetas.component';
 
 
 
@@ -32,7 +33,8 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
     HomeComponent,
     EntradaComponent,
     BuscarComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    EtiquetasComponent
   ],
   imports: [
     CommonModule,

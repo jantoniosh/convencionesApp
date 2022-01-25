@@ -671,16 +671,6 @@ a.ver-mas {
     text-transform: uppercase;
 }
 
-.single-info {
-    margin-top: 20px;
-    font-size: 0.8em;
-}
-
-.single-info a {
-    color: #fff;
-    text-decoration: underline;
-}
-
 @media only screen and (max-width: 980px) {
     .block-top-content.convencion .content-convencion,
     .footer-content {
