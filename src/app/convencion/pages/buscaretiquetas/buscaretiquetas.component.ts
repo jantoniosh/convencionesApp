@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { Etiqueta } from '../../interfaces/etiqueta';
 
 @Component({
-    selector: 'app-etiquetas',
-    templateUrl: './etiquetas.component.html',
-    styleUrls: ['./etiquetas.component.css']
+    selector: 'app-buscaretiquetas',
+    templateUrl: './buscaretiquetas.component.html'
 })
-export class EtiquetasComponent implements OnInit {
+
+export class BuscaretiquetasComponent {
 
     selectedEtiquetas: Etiqueta[] = [];
 
@@ -23,9 +24,7 @@ export class EtiquetasComponent implements OnInit {
         { id: 10, texto: 'ModalidadesDeLaViolencia' },
     ];
 
-    constructor() { }
 
-    ngOnInit(): void {
-    }
+    constructor() { }
 
 }

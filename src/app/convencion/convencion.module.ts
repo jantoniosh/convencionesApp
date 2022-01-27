@@ -11,12 +11,14 @@ import { MostrarMaterialesComponent } from './components/mostrar-materiales/most
 import { ErrorComponent } from './pages/error/error.component';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { HomeComponent } from './components/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntradaComponent } from './pages/entrada/entrada.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { EtiquetasComponent } from './components/etiquetas/etiquetas.component';
-
+import { BuscaretiquetasComponent } from './pages/buscaretiquetas/buscaretiquetas.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { CreditosComponent } from './pages/creditos/creditos.component';
 
 
 @NgModule({
@@ -34,12 +36,16 @@ import { EtiquetasComponent } from './components/etiquetas/etiquetas.component';
     EntradaComponent,
     BuscarComponent,
     CategoriaComponent,
-    EtiquetasComponent
+    EtiquetasComponent,
+    BuscaretiquetasComponent,
+    CreditosComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule,
+    FormsModule
   ],
   exports: [
     HomeComponent

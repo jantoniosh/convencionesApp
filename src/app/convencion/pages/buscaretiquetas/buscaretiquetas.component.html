@@ -1,0 +1,5 @@
+<ng-select [multiple]="true" [(ngModel)]="selectedEtiquetas">
+    <ng-option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.id">{{etiqueta.texto}}</ng-option>
+</ng-select>
+
+<br />Selected car ID: {{selectedEtiquetas | json}}

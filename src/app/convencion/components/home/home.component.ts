@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   onActivate() {
     window.scroll(0, 0);
+    const bodyElement = document.body;
+    bodyElement.classList.remove('menuactive');
   }
 
 }

@@ -1,5 +1,6 @@
 <div id="search-container">
     <label for="name">Busqueda por etiquetas: </label>
-    <input id="name">
-    <button>seleccionar</button>
+    <ng-select class="custom" [multiple]="true" [(ngModel)]="selectedEtiquetas">
+        <ng-option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.id">{{etiqueta.texto}}</ng-option>
+    </ng-select>
 </div>

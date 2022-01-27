@@ -6,6 +6,8 @@ import { CategoriaComponent } from './convencion/pages/categoria/categoria.compo
 import { CedawComponent } from './convencion/pages/cedaw/cedaw.component';
 import { EntradaComponent } from './convencion/pages/entrada/entrada.component';
 import { MainComponent } from './convencion/pages/main/main.component';
+import { BuscaretiquetasComponent } from './convencion/pages/buscaretiquetas/buscaretiquetas.component';
+import { CreditosComponent } from './convencion/pages/creditos/creditos.component';
 
 const routes: Routes = [
     {
@@ -40,6 +42,14 @@ const routes: Routes = [
     {
         path: 'busqueda',
         component: BusquedaComponent
+    },
+    {
+        path: 'etiqueta',
+        component: BuscaretiquetasComponent
+    },
+    {
+        path: 'creditos',
+        component: CreditosComponent
     }
 ];
 

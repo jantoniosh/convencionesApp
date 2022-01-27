@@ -1,0 +1,7 @@
+.ng-select.custom {
+    width: 100%;
+}
+
+.ng-select.custom .ng-select-container {
+    border-radius: 50px;
+}

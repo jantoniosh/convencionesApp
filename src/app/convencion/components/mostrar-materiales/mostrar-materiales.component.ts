@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entrada } from '../../interfaces/entrada.interface';
-import { EntradaService } from '../../services/convencion.service';
 import { Seccion } from '../../interfaces/seccion.interface';
 
 @Component({
     selector: 'app-mostrar-materiales',
-    templateUrl: './mostrar-materiales.component.html'
+    templateUrl: './mostrar-materiales.component.html',
+    styleUrls: ['./mostrar-materiales.component.css']
 })
 export class MostrarMaterialesComponent implements OnInit {
 
@@ -26,7 +25,7 @@ export class MostrarMaterialesComponent implements OnInit {
         entradas: []
     }
 
-    constructor(private entradaService: EntradaService) { }
+    constructor() { }
 
     ngOnInit(): void {
     }
@@ -65,5 +64,9 @@ export class MostrarMaterialesComponent implements OnInit {
             return "/categoria/infografia";
         }
         return "";
+    }
+
+    aumentar() {
+        this.seccion.noElementos += 4;
     }
 }

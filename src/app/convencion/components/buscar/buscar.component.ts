@@ -30,20 +30,6 @@ export class BuscarComponent implements OnInit {
 
   buscar() {
     this.router.navigate(['/busqueda'], {queryParams: {contenido: this.titulo.value}});
-    //   const observerEntrada = {
-    //     next: (entradas: Entrada[]) => {
-    //       console.log(entradas);
-    //       this.seccion.entradas = entradas;
-    //     },
-    //     error: (err: Error) => {
-    //       this.seccion.entradas = [];
-    //     }
-    //   }
-    //   this.entradaService
-    //     .buscarTitulo(this.titulo.value)
-    //     .subscribe(observerEntrada);
-    //   this.busqueda = true;
-    //   console.log();
   }
 
   reset() {

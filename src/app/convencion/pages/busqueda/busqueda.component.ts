@@ -18,7 +18,7 @@ export class BusquedaComponent implements OnInit {
         titulo: 'Resultados',
         detalle: true,
         color: 'Verde',
-        noElementos: 12,
+        noElementos: 0,
         boton: true,
         entradas: []
     };
@@ -36,21 +36,22 @@ export class BusquedaComponent implements OnInit {
                             titulo: `Resultados: ${this.titulo}`,
                             detalle: true,
                             color: 'Verde',
-                            noElementos: 12,
+                            noElementos: 4,
                             boton: true,
                             entradas: entradas
                         };
-
+                        this.hideBarra();
                     },
                     error: (err: Error) => {
                         this.seccion = {
-                            titulo: 'Sin Resultados',
+                            titulo: 'No se han encontrado resultados de tu búsqueda, vuelve a intentarlo',
                             detalle: false,
                             color: 'Verde',
                             noElementos: 0,
                             boton: false,
                             entradas: []
                         };
+                        this.hideBarra();
                     }
                 }
                 this.entradaService
@@ -58,6 +59,11 @@ export class BusquedaComponent implements OnInit {
                     .subscribe(observerEntrada);
             }
             );
+    }
 
+    hideBarra() {
+        window.scroll(0, 0);
+        const bodyElement = document.body;
+        bodyElement.classList.remove('menuactive');
     }
 }
