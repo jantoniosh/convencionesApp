@@ -1,0 +1,12 @@
+<div class="block-covers-search">
+    <div class="cover-search" *ngFor="let entrada of entradas">
+        <div class="image-cover">
+            <a [routerLink]=entrada.urlEntrada routerLinkActive="active"><img [src]="entrada.thumbnail"></a>
+        </div>
+        <div class="info-cover">
+            <h2><a [routerLink]=entrada.urlEntrada routerLinkActive="active">{{entrada.titulo}}</a></h2>
+            <h3>Convención: <a [routerLink]="getRutaConvencion(entrada.convencion)">{{entrada.convencion}}</a></h3>
+            <h3>Tipo: <a [routerLink]="getRutaCategoria(entrada.categoria)">{{entrada.categoria}}</a></h3>
+        </div>
+    </div>
+</div>

@@ -38,6 +38,7 @@ export class CategoriaComponent implements OnInit {
                 }
             }
             if (this.slug !== null) {
+                this.onActivate();
                 if (this.slug === "podcast") {
                     this.entradaService.buscarPodcasts("*").subscribe(observerEntrada);
                     this.seccion.titulo = "Podcasts";
@@ -55,6 +56,12 @@ export class CategoriaComponent implements OnInit {
     }
 
     hideBarra() {
+        window.scroll(0, 0);
+        const bodyElement = document.body;
+        bodyElement.classList.remove('menuactive');
+    }
+
+    onActivate() {
         window.scroll(0, 0);
         const bodyElement = document.body;
         bodyElement.classList.remove('menuactive');

@@ -42,6 +42,7 @@ export class EntradaService {
 
   buscarTitulo(titulo: string): Observable<Entrada[]> {
     const url = `${this.apiUrl}/gettitulo?titulo=${titulo}`;
+    // this.resultados = this.http.get<Entrada[]>(url);
     return this.http.get<Entrada[]>(url);
   }
 }

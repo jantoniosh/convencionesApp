@@ -1,39 +1,65 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Entrada } from '../../interfaces/entrada.interface';
-import { Seccion } from '../../interfaces/seccion.interface';
-import { EntradaService } from '../../services/convencion.service';
+import { LinksMenu } from '../../interfaces/links-menu';
 
 @Component({
-  selector: 'app-buscar',
-  templateUrl: './buscar.component.html'
+    selector: 'app-buscar',
+    templateUrl: './buscar.component.html'
 })
 export class BuscarComponent implements OnInit {
 
-  titulo = new FormControl('');
-  busqueda: boolean = false;
+    @Output() onBuscar: EventEmitter<string> = new EventEmitter();
 
-  seccion: Seccion = {
-    titulo: 'Resultados',
-    detalle: true,
-    color: 'Verde',
-    noElementos: 12,
-    boton: true,
-    entradas: []
-  };
+    titulo = new FormControl('');
+    busqueda: boolean = false;
+    menu: boolean = false;
 
-  constructor(private router: Router) { }
+    links: LinksMenu[] = [
+        {
+            texto: "Belém do Pará",
+            liga: "/belem-do-para"
+        },
+        {
+            texto: "CEDAW",
+            liga: "/cedaw"
+        },
+        {
+            texto: "Fichas",
+            liga: "/categoria/ficha"
+        },
+        {
+            texto: "Podcasts",
+            liga: "/categoria/podcast"
+        },
+        {
+            texto: "Infografías",
+            liga: "/categoria/infografia"
+        }
+    ]
 
-  ngOnInit(): void {
-  }
+    constructor() { }
 
-  buscar() {
-    this.router.navigate(['/busqueda'], {queryParams: {contenido: this.titulo.value}});
-  }
+    ngOnInit(): void {
+    }
 
-  reset() {
-    console.log(this.titulo.value);
-    this.busqueda = false;
-  }
+    buscar() {
+        this.onBuscar.emit(this.titulo.value);
+    }
+
+    reset() {
+        this.busqueda = false;
+    }
+
+    mostrarMenu() {
+        this.menu = !this.menu;
+        const bodyElement = document.body;
+        if (bodyElement) {
+            if (this.menu) {
+                bodyElement.classList.add("menuactive");
+            }
+            else {
+                bodyElement.classList.remove("menuactive");
+            }
+        }
+    }
 }

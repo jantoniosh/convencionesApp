@@ -19,6 +19,9 @@ import { EtiquetasComponent } from './components/etiquetas/etiquetas.component';
 import { BuscaretiquetasComponent } from './pages/buscaretiquetas/buscaretiquetas.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CreditosComponent } from './pages/creditos/creditos.component';
+import { SidebarmenuComponent } from './components/sidebarmenu/sidebarmenu.component';
+import { SidebarresultadosComponent } from './components/sidebarresultados/sidebarresultados.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -38,14 +41,17 @@ import { CreditosComponent } from './pages/creditos/creditos.component';
     CategoriaComponent,
     EtiquetasComponent,
     BuscaretiquetasComponent,
-    CreditosComponent
+    CreditosComponent,
+    SidebarmenuComponent,
+    SidebarresultadosComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   exports: [
     HomeComponent

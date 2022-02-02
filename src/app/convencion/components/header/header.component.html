@@ -1,24 +1,7 @@
 <header id="header" role="banner">
-    <div class="wrapper-ham" (click)="ctrlBarra()">
-        <div class="btn">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-    </div>
     <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
         <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="home"
             rel="home"><img class="logo" [src]=logoSrc [alt]=logoAlt></a>
     </div>
-    <div id="menu-container">
-        <app-buscar></app-buscar>
-        <app-etiquetas></app-etiquetas>
-        <ul class="first-menu">
-            <li><a routerLink="/belem-do-para" routerLinkActive="active">Belém do Pará</a></li>
-            <li><a routerLink="/cedaw" routerLinkActive="active">CEDAW</a></li>
-            <li><a routerLink="./categoria/ficha" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Fichas</a></li>
-            <li><a routerLink="./categoria/podcast" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Podcast</a></li>
-            <li><a routerLink="./categoria/infografia" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Infografías</a></li>
-        </ul>
-    </div>
+    <app-sidebarmenu></app-sidebarmenu>
 </header>

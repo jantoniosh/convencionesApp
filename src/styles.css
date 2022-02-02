@@ -3,7 +3,6 @@ Theme Name: Convenciones comentadas para juzgar con perspectiva de género
 */
 
 @import "~@ng-select/ng-select/themes/default.theme.css";
-
 html,
 body,
 div,
@@ -363,7 +362,6 @@ header#header {
 }
 
 div#search-container {
-    margin: 0 0 0 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -380,7 +378,7 @@ div#search-container input#name {
 }
 
 div#search-container button {
-    height: 35px;
+    height: 36px;
     border-radius: 0 16px 16px 0;
     display: inline-block;
     margin: 0;
@@ -388,6 +386,7 @@ div#search-container button {
     background-color: #ff5f3f;
     color: #fff;
     width: 20%;
+    padding-top: 6px;
 }
 
 div#search-container label {
@@ -708,11 +707,14 @@ a.ver-mas {
     text-decoration: underline;
 }
 
+div#menu-elements-container {
+    display: flex;
+}
+
 .wrapper-ham {
-    position: absolute;
     overflow: hidden;
     width: 50px;
-    padding: 5px;
+    padding: 10px 0px;
     top: 24px;
     left: 18px;
     z-index: 10000;
@@ -751,44 +753,6 @@ a.ver-mas {
     top: 16px;
 }
 
-/* .bar1.active {
-    top: 9px;
-    -webkit-transform: rotate(-135deg);
-    -webkit-transition: all 0.2s ease-in;
-}
-.bar2.active {
-    left: 0px;
-    background-color: transparent;
-    -webkit-transition: all 0.2s ease-in;
-}
-.bar3.active {
-    top: 9px;
-    -webkit-transform: rotate(135deg);
-    -webkit-transition: all 0.2s ease-in;
-} */
-
-div#menu-container {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    max-width: 350px;
-    top: 0;
-    left: -350px;
-    background-color: #898989;
-    overflow: hidden;
-    padding: 90px 11px;
-    box-sizing: border-box;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    z-index: 101;
-}
-
-body.menuactive div#menu-container {
-    left: 0;
-}
-
 body.menuactive .bar1 {
     top: 9px;
     -webkit-transform: rotate(-135deg);
@@ -805,6 +769,45 @@ body.menuactive .bar3 {
     -webkit-transition: all 0.2s ease-in;
 }
 
+div#menu-container {
+    position: absolute;
+    width: 100%;
+    max-width: 350px;
+    top: 0px;
+    left: 0;
+    background-color: #24135f;
+    padding: 20px 14px;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    z-index: 101;
+    box-sizing: border-box;
+}
+
+#menu-list-header {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    max-width: 350px;
+    top: 0px;
+    left: -350px;
+    background-color: #24135f;
+    overflow: hidden;
+    padding: 70px 0 0 22px;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    z-index: 101;
+    box-sizing: border-box;
+}
+
+body.menuactive #menu-list-header {
+    left: 0;
+}
 
 .block-info-page.creditos {
     display: flex;
@@ -815,6 +818,52 @@ body.menuactive .bar3 {
 
 .block-info-page.creditos .column-page {
     width: 30%;
+}
+
+.block-covers-search {
+    width: 100%;
+    margin-top: 14px;
+    height: calc(100vh - 130px);
+    overflow-y: scroll;
+}
+
+.close-tab {
+    text-align: right;
+    padding: 18px 10px 0 10px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.block-covers-search .cover-search {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #355ea1;
+    margin-bottom: 10px;
+}
+
+.block-covers-search .cover-search .image-cover {
+    width: 20%;
+}
+
+.block-covers-search .cover-search .info-cover {
+    width: 80%;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: left;
+}
+
+.block-covers-search .cover-search .info-cover a {
+    color: #fff;
+}
+
+.block-covers-search .cover-search .info-cover h2 {
+    font-size: 1.2em;
+}
+
+.block-covers-search .cover-search .info-cover h3 {
+    text-align: left;
 }
 
 @media only screen and (max-width: 980px) {
